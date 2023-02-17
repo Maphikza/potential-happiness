@@ -16,7 +16,8 @@ fn main() {
     let user_path = get_path();
     let start_path = Path::new(&user_path);
     let _total_size = visit_dirs(start_path, &print_entry_size);
-    println!("The total size for this directory is, {:#?}", A.lock().unwrap())
+    let answer = A.lock().unwrap();
+    println!("The total size for this directory is, {:#?}MB", answer.to_le()/1048576)
 }
 
 fn get_path() -> String {
